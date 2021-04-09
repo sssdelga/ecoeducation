@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Capture</title>
+    {% load static %}
+    <link rel='stylesheet' href='{% static "cc_style.css" %}'>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Welcome, {{user.first_name}}</h1>
+    <div id='menu_bar'>
+        <ul>
+            <li><a href='/ecoed'>Home</a></li>
+            <li>|</li>
+            <li><a href='/ecoed/books/{{book_otm.id}}'>Book of the Month</a></li>
+            <li>|</li>
+            <li><a href='/ecoed/subscribe'>Newsletter</a></li>
+            <li>|</li>
+            <li><a href='/ecoed/logout'>Log Out</a></li>
+        </ul>
+    </div>
+    <div id='carbon_log'>
+        <div class='pies'>
+            <h3>Your logged mileage:</h3>
+            <div class='carbon_pie'>
+                <canvas id='mileage'></canvas>
+                <script>
+                    var ctx=document.getElementById('mileage').getContext('2d');
+                    var C_footprint = new Chart(ctx, {
+                        type:'pie',
+                        data: {
+                            labels: ['Flight', 'Drive', 'Train'],
+                            datasets: [{
+                                label: 'test label',
+                                data: [{{flights}},{{drives}},{{trains}}],
+                                backgroundColor: [
+                                    'rgb(255,99,132)',
+                                    'rgb(54,162,235)',
+                                    'rgb(255,205,86)'
+                                ],
+                                hoverOffset:4
+                            }]
+                        }
+                    })
+                </script>
+            </div>
+            <h3>Your logged carbon footprint:</h3>
+            <div class='carbon_pie'>
+                <canvas id='C_footprint'></canvas>
+                <script>
+                    var ctx=document.getElementById('C_footprint').getContext('2d');
+                    var C_footprint = new Chart(ctx, {
+                        type:'pie',
+                        data: {
+                            labels: ['Flight', 'Drive', 'Train'],
+                            datasets: [{
+                                label: 'test label',
+                                data: [{{flight_C}},{{drive_C}},{{train_C}}],
+                                backgroundColor: [
+                                    'rgb(255,99,132)',
+                                    'rgb(54,162,235)',
+                                    'rgb(255,205,86)'
+                                ],
+                                hoverOffset:4
+                            }]
+                        }
+                    })
+                </script>
+            </div>
+        </div>
+        <div id='carbon_footprint_info'>
+            <div id='carbon_log_form'>
+                <h3>Log your carbon here!</h3>
+                <form action='/ecoed/carbon/log' method='POST'>
+                    {% csrf_token %}
+                    <label for='activity'>Activity type:</label>
+                    <select name='activity'>
+                        <option value='plane'>Flight</option>
+                        <option value='car'>Drive</option>
+                        <option value='train'>Train</option>
+                    </select>
+                    <label for='mileage'>Miles travelled:</label>
+                    <input type="number" id='mileage' name='mileage'>
+                    <input type='submit' value='Log'>
+                </form>
+            </div>
+            <table>
+                <thead>
+                    <th>Activity</th>
+                    <th>Miles</th>
+                    <th>Carbon Footprint (lbs)</th>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Flight Total</td>
+                        <td>{{flights}}</td>
+                        <td>{{flight_C}}</td>
+                    </tr>
+                    <tr>
+                        <td>Drive Total</td>
+                        <td>{{drives}}</td>
+                        <td>{{drive_C}}</td>
+                    </tr>
+                    <tr>
+                        <td>Train Total</td>
+                        <td>{{trains}}</td>
+                        <td>{{train_C}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

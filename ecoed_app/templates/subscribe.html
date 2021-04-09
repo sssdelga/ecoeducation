@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscribe</title>
+    {% load static %}
+    <link rel='stylesheet' href='{% static "log_reg.css" %}'>
+</head>
+<body>
+    <h1>Subscribe to our monthly newsletter!</h1>
+    <div id='form_parent'>
+        <div id='form_child'>
+            {% if messages %}
+            <ul class='messages'>
+                {% for message in messages %}
+                <li>{{message}}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            <form action='/ecoed/create_user' method='POST'>
+                {% csrf_token %}
+                <label for='first_name'>First Name</label>
+                <input type='text' id='first_name' name='first_name'>
+                <label for='last_name'>Last Name</label>
+                <input type='text' id='last_name' name='last_name'>
+                <label for='email'>Email Address</label>
+                <input type='text' id='email' name='email'>
+                <input type='submit' value='Subscribe'>
+            </form>
+        </div>
+    </div>
+    <div id='link_list'>
+        <a href='/ecoed'>Home</a>
+    </div>
+</body>
+</html>

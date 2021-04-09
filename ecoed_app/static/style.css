@@ -1,0 +1,63 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    background-color: rgb(174, 210, 224);
+    font-family:sans-serif;
+}
+
+h1{
+    font-size: 32pt;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+#menu_bar ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 10%;
+}
+#menu_bar li{
+    display: inline-block;
+}
+
+#body{
+    background-color: rgb(174, 210, 224);
+}
+#ecosystem_hl{
+    margin: 10px;
+}
+.carousel-inner{
+    height: 600px;
+}
+.item img{
+    height: 500px;
+}
+.carousel-indicators{
+    background-color: transparent;
+}
+.carousel-caption, .carousel-caption h3{
+    background-color: transparent;
+    padding-bottom: 800px;
+    font-weight:bolder;
+}
+
+
+#book_list_parent{
+    display: flex;
+    justify-content: space-around;
+}
+#book_list{
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px;
+    width: 500px;
+    text-align: center;
+    font-weight:lighter;
+    font-size: 14pt;
+    margin:20px 0px 100px;
+}
+#book_list h2{
+    margin-top: 10px;
+}

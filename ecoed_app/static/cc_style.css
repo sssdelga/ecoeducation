@@ -1,0 +1,72 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    background-color: rgb(174, 210, 224);
+    font-family:sans-serif;
+}
+h1{
+    font-size: 32pt;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+
+#menu_bar ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 10%;
+}
+#menu_bar li{
+    display: inline-block;
+}
+
+
+#carbon_log{
+    display: flex;
+    justify-content:space-around;
+    margin: 30px 50px;
+}
+
+    table{
+        border: 1px solid black;
+        border-collapse: collapse;
+        width: 450px;
+        margin-top: 30px;
+        border: 5px solid rgb(25, 90, 128);
+    }
+    th, td{
+        border: 1px solid black;
+        padding: 10px;
+    }
+#carbon_log_form{
+    border: 5px solid rgb(25, 90, 128);
+    width: 400px;
+    padding: 20px;
+    height: 200px;
+    margin-top: 20px;
+}
+    input, select{
+        margin-left:30px;
+        color: rgb(25, 90, 128);
+        display: block;
+        margin: 10px;
+        background-color: rgb(220, 231, 220);
+    }
+    input[type=number]:focus, select:focus {
+        border: 3px solid rgb(62, 247, 6);
+        background-color: seashell;
+    }
+    #carbon_log_form input[type=submit]{
+        background-color: black;
+        color:rgb(188, 245, 188);
+        padding: 5px;
+        border-radius: 2px;
+    }
+
+
+    .carbon_pie{
+        margin-bottom: 30px;
+        padding: 10px;
+    }

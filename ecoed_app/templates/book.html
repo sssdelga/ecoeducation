@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book of the Month</title>
+    {% load static %}
+    <link rel='stylesheet' href = '{% static "book_style.css" %}'>
+</head>
+<body>
+    <h1>{{book.title}}</h1>
+    
+    <div id='book_info_bar'>
+        <h2>By: {{book.author}}</h2>
+        <a href='{{book.purchase_link}}'>Purchase the book here</a>
+    </div>
+    <h3>Summary</h3>
+    <div id='book_summary'>
+        <p>{{book.desc}}</p>
+        <figure>
+            <img src='{% static book.img_url %}' alt='{{book.author}}'>
+            <figcaption>{{book.author}}</figcaption>
+        </figure>
+    </div>
+    <div id='menu_bar'>
+        <ul>
+            <li><a href='/ecoed'>Home</a></li>
+            <li>|</li>
+            <li><a href='/ecoed/subscribe'>Sign-Up for our newsletter</a></li>
+            <li>|</li>
+            {% if request.session.user_id %}
+                <li><a href='/ecoed/hello/friend'>Go to your user account</a></li>
+                <li>|</li>
+                <li><a href='/ecoed/logout'>Log Out</a></li>
+            {% else %}
+                <li><a href='/ecoed/login'>Log in to your carbon capture account</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</body>
+</html>
