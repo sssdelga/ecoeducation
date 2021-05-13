@@ -2,7 +2,7 @@
     padding: 0px;
     margin: 0px;
     background-color: rgb(174, 210, 224);
-    font-family:sans-serif;
+    font-family:'Advent Pro', sans-serif;
 }
 
 h1{
@@ -12,52 +12,73 @@ h1{
     margin-bottom: 10px;
 }
 
-#menu_bar ul{
-    list-style-type: none;
-    display: flex;
-    justify-content: space-around;
-    margin: 30px 10%;
-}
-#menu_bar li{
-    display: inline-block;
-}
+    #menu_bar ul{
+        list-style-type: none;
+        display: flex;
+        justify-content: space-around;
+        padding: 30px 10%;
+        margin: 0px;
+        border-bottom: 2px solid white;
+    }
+    #menu_bar li{
+        display: inline-block;
+        font-size: 14pt;
+    }
 
 #body{
-    background-color: rgb(174, 210, 224);
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
 }
-#ecosystem_hl{
-    margin: 10px;
+#body_main{
+    width: 70%;
+    background-color: rgb(45, 98, 119);
 }
-.carousel-inner{
-    height: 600px;
-}
-.item img{
-    height: 500px;
-}
-.carousel-indicators{
-    background-color: transparent;
-}
-.carousel-caption, .carousel-caption h3{
-    background-color: transparent;
-    padding-bottom: 800px;
-    font-weight:bolder;
-}
+    #body_main h2{
+        font-weight: bolder;
+        text-align: center;
+        background-color: rgb(45, 98, 119);
+        color:rgb(174, 210, 224);
+    }
+
+    #ecosystem_hl{
+        margin: 10px;
+    }
+        .carousel-inner{
+            height: 600px;
+        }
+        .item img{
+            height: 500px;
+        }
+        .carousel-indicators, .carousel-control span{
+            background-color: transparent;
+        }
+        .carousel-caption, .carousel-caption h3{
+            background-color: transparent;
+            font-weight:bolder;
+        }
+        .carousel-caption {
+            position: relative;
+            left: 0;
+            top: 0;
+        }
 
 
 #book_list_parent{
     display: flex;
     justify-content: space-around;
+    margin: 0px 30px;
 }
-#book_list{
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 10px;
-    width: 500px;
-    text-align: center;
-    font-weight:lighter;
-    font-size: 14pt;
-    margin:20px 0px 100px;
-}
-#book_list h2{
-    margin-top: 10px;
-}
+    #book_list{
+        border: 1px solid black;
+        border-radius: 20px;
+        padding: 10px;
+        text-align: center;
+        font-size: 14pt;
+        margin:20px 0px;
+    }
+    #book_list h2{
+        margin-top: 10px;
+        font-weight: bolder;
+        padding-bottom: 15px;
+    }

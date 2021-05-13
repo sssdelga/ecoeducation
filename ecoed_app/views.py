@@ -11,7 +11,12 @@ def filter_by_date():
         month__month=todays_date.month
         )
     print(book)
-    return book[0]
+    if len(book)>0:
+        return book[0]
+    else:
+        # return an empty array
+        book=[]
+        return book
 
 def index(request):
     book_otm = filter_by_date
